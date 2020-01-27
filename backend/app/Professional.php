@@ -13,7 +13,7 @@ class Professional extends Model
 
     public function tecnologies()
     {
-        return $this->hasMany('App\Tecnology','professionals_tecnologies','professional_id','tecnology_id');
+        return $this->belongsToMany('App\Tecnology','professionals_tecnologies','professional_id','tecnology_id');
 
     }
 }

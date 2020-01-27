@@ -16,15 +16,13 @@ class ProfessionalController extends Controller
     }
 
     public function create(Request $request) {
+        $tecnologyId = $request->tecnology;
         $newProfessional = new Professional();
         $newProfessional->name = $request->name;
         $newProfessional->github = $request->github;
-
-        $tecnologyId = $request->tecnology;
-        $tecnology = Tecnology::find($tecnologyId);
-
         $result = $newProfessional->save(); //coloca em result para fazer validações - o result dá true or false
-
+        $tecnology = Tecnology::find($tecnologyId);
+        dd($tecnology);
         if($tecnology) {
             $tecnology->professionals()->attach($newProfessional->id);
         } else {
