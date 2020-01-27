@@ -11,7 +11,7 @@ class Tecnology extends Model
 
     public function professionals()
     {
-        return $this->belongsToMany('App\Professional', 'professionals_tecnologies', 'tecnology_id', 'professional_id');
+        return $this->hasMany('App\Professional', 'professionals_tecnologies', 'tecnology_id', 'professional_id');
         //poderia usar Professional::class
     }
 }
